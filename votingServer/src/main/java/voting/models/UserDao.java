@@ -19,4 +19,11 @@ public class UserDao {
     public List<User> getAll() {
         return entityManager.createQuery("from User").getResultList();
     }
+
+    public User getByPesel(String pesel) {
+        return (User) entityManager.createQuery(
+                "from User where pesel = :pesel")
+                .setParameter("pesel", pesel)
+                .getSingleResult();
+    }
 }
