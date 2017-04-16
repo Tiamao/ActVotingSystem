@@ -3,6 +3,7 @@ package voting.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,5 +25,11 @@ public class SphereController {
     @ResponseBody
     public List<Sphere> getAllActs(){
         return sphereDao.getAll();
+    }
+
+    @RequestMapping(value="/spheres/{name}")
+    @ResponseBody
+    public Sphere getSphereByName(@PathVariable String name) {
+        return sphereDao.getByName(name);
     }
 }

@@ -22,4 +22,11 @@ public class SphereDao {
     public List<Sphere> getAll() {
         return entityManager.createQuery("from Sphere").getResultList();
     }
+
+    public Sphere getByName(String name){
+        return (Sphere) entityManager.createQuery(
+                "from Sphere where name = :name")
+                .setParameter("name", name)
+                .getSingleResult();
+    }
 }

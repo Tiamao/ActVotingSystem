@@ -29,7 +29,7 @@ public class ActController {
         return actDao.getAll();
     }
 
-    @RequestMapping(value="/get-act-by-sphere/{id}")
+    @RequestMapping(value="/acts/{id}")
     @ResponseBody
     public List<Act> getActBySphere(@PathVariable int id) {
         List<Act> selectedActs = new ArrayList<>();
