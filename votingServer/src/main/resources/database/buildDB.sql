@@ -49,7 +49,9 @@ actID int NOT NULL,
 deadline date,
 vote boolean,
 userID int NOT NULL,
-isProxy boolean
+isProxy boolean,
+FOREIGN KEY (actID) REFERENCES act(actID),
+FOREIGN KEY (userID) REFERENCES user(userID)
 );
 
 
